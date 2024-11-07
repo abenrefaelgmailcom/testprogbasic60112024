@@ -75,6 +75,24 @@ if number % 2 == 0:
 else:
     print("odd")
 
+#10
+#
+
+range_list: list[int] = [0, 6000, 12000, 18000, 25000, 35000, 50000]
+percentage_list: list[int] = [0, 10, 20, 30, 40, 45, 51]
+original_paycheck = int(input("Enter the original salary: "))
+paycheck = original_paycheck
+after_tax = 0
+
+for i in range(6, -1, -1):
+    if original_paycheck > range_list[i]:
+        taxable_amount = paycheck - range_list[i]
+        tax_for_range = taxable_amount * percentage_list[i] / 100
+        after_tax += tax_for_range
+        paycheck = range_list[i]
+
+print("Tax:", after_tax)
+print("Net salary after tax:", original_paycheck - after_tax)
 
 
 #11
@@ -218,6 +236,22 @@ else:
     else:
         print(f"{number} is a prime number")
 
+#9
+#
+num1 = int(input("הכנס את המספר הראשון: "))
+num2 = int(input("הכנס את המספר השני: "))
+
+#
+smaller = min(num1, num2)
+gcd = 1
+
+# 8
+for i in range(1, smaller + 1):
+    # ף
+    if num1 % i == 0 and num2 % i == 0:
+        gcd = i
+
+print("common num is", num1, "and", num2, "is:", gcd)
 
 
 
@@ -230,10 +264,10 @@ last_was_zero = False
 
 for i in range(12):
     try:
-        temp = float(input(f" avg temperature for month {i + 1}: "))
+        temp = float(input(f" avg temp for month {i + 1}: "))
 
         if temp == 0 and last_was_zero:
-            print("Consecutive zero detected, input ignored. Please re-enter.")
+            print("second zero inserted, pls re enter.")
             continue
 
         last_was_zero = (temp == 0)
